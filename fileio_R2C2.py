@@ -8,8 +8,8 @@ def parse_args_R2C2():
     parser.add_argument('-o', '--output_path', type=str)
     args = parser.parse_args()
     output_path = args.output_path + '/'
-    input_reads = args.input_fasta
-    return input_reads, output_path
+    input_fasta = args.input_fasta
+    return input_fasta, output_path
 
 # %%
 def read_fasta(infile):
