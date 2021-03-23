@@ -42,7 +42,7 @@ def df_to_fasta(dfR2C2, out):
         for row_label, row in dfR2C2.iterrows():
             head = '>' + '_'.join(row.astype('string').iloc[:-1].to_list())
             seq = row['sequence']
-            f.write('%s\n%s' %(head, seq))
+            f.write('%s\n%s\n' %(head, seq))
 
 
 # %%
