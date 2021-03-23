@@ -10,7 +10,7 @@ cols = 'readName_averageQuality_originalReadLength_numberOfRepeats_subreadLength
 # %%
 def reads_to_df(reads):
     print('construct a dataframe from reads dict, columns are:')
-    readsData = [k[1:].split('_') + [reads[k]] for k in reads]
+    readsData = [k[:].split('_') + [reads[k]] for k in reads]
     print(cols)
     df = pd.DataFrame(readsData, columns=cols, dtype='string')
     df['averageQuality'] = pd.to_numeric(df['averageQuality'])
