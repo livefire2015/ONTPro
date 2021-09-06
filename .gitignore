@@ -11,6 +11,7 @@ htseq/HTSeq/StepVector.py
 htseq/HTSeq/_version.py
 htseq/src/_HTSeq.c
 htseq/src/StepVector_wrap.cxx
+htseq/example_data
 */*.bak
 
 
