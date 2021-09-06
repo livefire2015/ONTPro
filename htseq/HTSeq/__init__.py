@@ -915,8 +915,12 @@ class BAM_Reader(object):
         try:
             self.record_no = 0
             for pa in self.sf:
-                yield SAM_Alignment.from_pysam_AlignedSegment(pa, self.sf)
-                self.record_no += 1
+                if pa.query_sequence is not None:
+                    yield SAM_Alignment.from_pysam_AlignedSegment(pa, self.sf)
+                    self.record_no += 1
+                else:
+                    warnings.warn(
+                        "Invalid query_sequence!")
         finally:
             if call_exit:
                 self._close_file()
