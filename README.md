@@ -19,4 +19,7 @@ cd ..
 python count.py -h
 
 python count.py -s=no htseq/example_data/3356_sample_1_aln_hg19.sam htseq/example_data/hg19.refGene.gtf
+
+python count.py -s=no htseq/example_data/3356_sample_1_aln_hg19.sam htseq/example_data/hg19.refGene.gtf -q -c='htseq/example_data/3356_count.
+txt'
 ```

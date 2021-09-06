@@ -882,6 +882,7 @@ class BAM_Reader(object):
         self.filename = filename
         self.sf = None
         self.record_no = -1
+        self.record_invalid_no = -1
         self.check_sq = check_sq
         try:
             import pysam
@@ -921,6 +922,7 @@ class BAM_Reader(object):
                 else:
                     warnings.warn(
                         "Invalid query_sequence!")
+                    self.record_invalid_no += 1
         finally:
             if call_exit:
                 self._close_file()
@@ -949,6 +951,12 @@ class BAM_Reader(object):
             return "unopened file %s" % (self.filename)
         else:
             return "record #%d in file %s" % (self.record_no, self.filename)
+
+    def get_invalid_seq_number_string(self):
+        if self.record_invalid_no == -1:
+            return "unopened file %s" % (self.filename)
+        else:
+            return "found #%d invalid query_sequence in file %s" % (self.record_invalid_no, self.filename)
 
     def __getitem__(self, iv):
         if not isinstance(iv, GenomicInterval):

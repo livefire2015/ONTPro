@@ -224,6 +224,8 @@ def count_reads_single_file(
     if samoutfile is not None:
         samoutfile.close()
 
+    sys.stdout.write(read_seq_file.get_invalid_seq_number_string())
+
     return {
         'isam': isam,
         'counts': counts,
